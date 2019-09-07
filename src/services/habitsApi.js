@@ -27,12 +27,8 @@ export const getHabits = () => {
       'Authorization': `Bearer ${token}`
     }
   })
-    .then(res => ([res.ok, res.json()]))
-    .then(([ok, json]) => {
-      if(!ok) throw 'Unable to get dogs.';
-      return json;
-    })
-    .then(json => {
-      return json;
+    .then(res => {
+      if(!res.ok) throw 'Could not create a habit';
+      return res.json();
     });
 };
