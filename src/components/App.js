@@ -5,16 +5,14 @@ import {
   Switch
 } from 'react-router-dom';
 import { withSession } from '../Auth0Provider';
-import CreateHabit from '../containers/CreateHabit';
-import DisplayHabits from '../containers/DisplayHabits';
+import Habits from '../containers/Habits';
 
 export default function App() {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={withSession(CreateHabit)} />
-          <Route exact path="/habits" component={withSession(DisplayHabits)} />
+          <Route exact path="/" component={withSession(Habits)} />
         </Switch>
       </Router>
     </>
