@@ -19,7 +19,6 @@ export const postHabit = (habit, description) => {
 };
 
 export const getHabits = () => {
-  console.log('called get habits in services');
   return fetch(`${process.env.API_URL}/api/v1/habits`, {
     method: 'GET',
     headers: {
@@ -27,8 +26,9 @@ export const getHabits = () => {
       'Authorization': `Bearer ${token}`
     }
   })
-    .then(res => {
-      if(!res.ok) throw 'Could not create a habit';
-      return res.json();
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw 'Error getting quote.';
+      return json;
     });
 };
