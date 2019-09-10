@@ -4,9 +4,11 @@ import { PropTypes } from 'prop-types';
 
 export default function HabitList({ habits }) {
   const habitsArray = habits.map((habit, i) => {
+    console.log(habit);
     return <li key={i}>
       <p>{i}</p>
       <p>{habit.habit}</p>
+      <p>{habit.description}</p>
     </li>;
   });
 
